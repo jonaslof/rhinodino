@@ -1,0 +1,8 @@
+<h1>{{title}}</h1>
+<section class="portfolio-items">
+	{{#each items}}
+		<article id="portfolio-item-{{id}}" class="portfolio-item">
+			<a href="/portfolio/{{id}}" title="{{title}}"><h2>{{title}}</h2></a>
+		</article>
+	{{/each}}
+</section>

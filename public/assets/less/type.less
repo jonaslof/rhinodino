@@ -1,0 +1,75 @@
+/*
+ * Type
+ *
+ * Edit: Antonio Rizzo 2013-04-03
+ */
+ 
+ 
+ 
+// Mixin
+
+.font(@fontSize: @baseFontSize, @lineheight: @baseLine, @multiplier : 1, @relSize: @baseFontSize)
+{
+	font-size: (@fontSize / @relSize) * 1em;
+	line-height: ((@lineheight * @multiplier) / @fontSize) * 1em;
+	margin: ((@lineheight * @multiplier) / @fontSize) * 1em 0 0;
+}
+
+
+
+// Defaults
+
+body
+{
+	font-size: @baseFontSize * 1px;
+	line-height: @baseLine * 1px;
+	font-family: @baseFontFamily;
+	font-weight: @baseFontWeight;
+	color: @baseFontColor;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: @headingsFontFamily; font-weight: @headingsFontWeight; word-wrap: break-word; color: @headingsFontColor; }
+
+h1 { .font(@baseFontSize * @h1FontSizeMultiplier, @baseLine, 2); }
+h2 { .font(@baseFontSize * @h2FontSizeMultiplier, @baseLine, 2); }
+h3 { .font(@baseFontSize * @h3FontSizeMultiplier); }
+h4 { .font(@baseFontSize * @h4FontSizeMultiplier); }
+h5 { .font(@baseFontSize * @h5FontSizeMultiplier); }
+h6 { .font(@baseFontSize * @h6FontSizeMultiplier); }
+
+p, ul, ol { .font(); }
+small { .font(12); }
+a { color: @baseLinkColor; }
+strong { font-weight: @strongFontWeight; }
+
+
+
+// Media Queries
+
+@media @tablet-landscape
+{ 
+	body { font-size: @tabletBaseFontSize * 1px; line-height: @tabletBaseLine * 1px; }
+	
+	h1 { .font(@tabletBaseFontSize * @h1FontSizeMultiplier, @tabletBaseLine, 2, @tabletBaseFontSize); }
+	h2 { .font(@tabletBaseFontSize * @h2FontSizeMultiplier, @tabletBaseLine, 2, @tabletBaseFontSize); }
+	h3 { .font(@tabletBaseFontSize * @h3FontSizeMultiplier, @tabletBaseLine, 1, @tabletBaseFontSize); }
+	h4 { .font(@tabletBaseFontSize * @h4FontSizeMultiplier, @tabletBaseLine, 1, @tabletBaseFontSize); }
+	h5 { .font(@tabletBaseFontSize * @h5FontSizeMultiplier, @tabletBaseLine, 1, @tabletBaseFontSize); }
+	h6 { .font(@tabletBaseFontSize * @h6FontSizeMultiplier, @tabletBaseLine, 1, @tabletBaseFontSize); }
+	
+	p, ul, ol { .font(@tabletBaseFontSize, @tabletBaseLine, 1, @tabletBaseFontSize); }
+}
+
+@media @mobile-landscape
+{
+	body { font-size: @mobileBaseFontSize * 1px; line-height: @mobileBaseLine * 1px; }
+	
+	h1 { .font(@mobileBaseFontSize * @h1FontSizeMultiplier, @mobileBaseLine, 2, @mobileBaseFontSize); }
+	h2 { .font(@mobileBaseFontSize * @h2FontSizeMultiplier, @mobileBaseLine, 2, @mobileBaseFontSize); }
+	h3 { .font(@mobileBaseFontSize * @h3FontSizeMultiplier, @mobileBaseLine, 1, @mobileBaseFontSize); }
+	h4 { .font(@mobileBaseFontSize * @h4FontSizeMultiplier, @mobileBaseLine, 1, @mobileBaseFontSize); }
+	h5 { .font(@mobileBaseFontSize * @h5FontSizeMultiplier, @mobileBaseLine, 1, @mobileBaseFontSize); }
+	h6 { .font(@mobileBaseFontSize * @h6FontSizeMultiplier, @mobileBaseLine, 1, @mobileBaseFontSize); }
+	
+	p, ul, ol { .font(@mobileBaseFontSize, @mobileBaseLine, 1, @mobileBaseFontSize); }
+}

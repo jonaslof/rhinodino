@@ -1,0 +1,19 @@
+<header id="header" class="homepage-header">
+	<h1>Rhino + Dino</h1>
+	<p class="caption">
+		Om man slår samman två saker kan man, om man har tur, få fram något fantastiskt. Exempelvis om man lägger ihop kod och design kan något magiskt skapas. Något som gör nytta, ser bra ut och samtidigt är roligt att använda. Det är något som jag försöker åstadkomma när jag som designer och webbutvecklare tar mig an ett nytt projekt. 
+	</p>
+</header>
+<section id="content" class="homepage-portfolio">
+	{{#each portfolio}}
+		<a href="/portfolio/{{id}}" title="{{title}}">
+			<article id="portfolio-item-{{id}}" class="portfolio-item">
+				{{#if images.length}}
+					<img src="/files/portfolio/{{id}}/{{images.0.filename}}" title="{{title}}">
+				{{else}}
+					{{title}}
+				{{/if}}
+			</article>
+		</a>
+	{{/each}}
+</section>

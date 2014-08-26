@@ -1,0 +1,18 @@
+/*
+Homepage
+ */
+#slider-nav 								{margin-left: 60px;}
+
+/*
+Article archive
+ */
+.select  									{padding-top: 5px; padding-bottom: 5px;}
+.select-large 								{padding-top: 10px; padding-bottom: 10px;}
+.input-text 								{padding-top: 11px; padding-bottom: 10px;}
+.order-form-search .input-text-large 		{padding-top: 15px; padding-bottom: 15px;}
+.article-search-result-grid 				{width: 24%;}
+
+.visible-in-ie 								{display: block;}
+.ie-inline-block 							{display: inline-block;}
+
+#footer 									{margin-top: 60px;}

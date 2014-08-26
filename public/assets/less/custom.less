@@ -1,0 +1,100 @@
+// Grid-less
+@import 'grid.pack.less';
+@import 'elements.less';
+@import url('http://fonts.googleapis.com/css?family=Oswald:300,400,700|Ubuntu:400italic,700italic,400,700');
+
+@max-width: 1120px;
+
+@baseFontFamily:    		Helvetica, sans-serif;
+@baseFontWeight: 			400;
+@baseFontSize: 				16;
+@baseLine:        			21;
+@headingsFontFamily:    	Helvetica, sans-serif;
+@headingsFontWeight:    	400;
+@h1FontSizeMultiplier: 		2;
+@h2FontSizeMultiplier: 		1.6;
+
+@sidebarWidth: 				200px;
+
+@baseLinkColor:				#7834BB;
+
+
+//MIXINS
+.paddingTop(@multiplier: 1) 									{padding-top: @multiplier*@gutter;}
+.paddingLeft(@multiplier: 1) 									{padding-left: @multiplier*@gutter;}
+.paddingRight(@multiplier: 1) 									{padding-right: @multiplier*@gutter;}
+.paddingBottom(@multiplier: 1) 									{padding-bottom: @multiplier*@gutter;}
+.paddingBox(@multiplier: 1)										{padding: @multiplier*@gutter;}
+.marginTop(@multiplier: 1) 										{margin-top: @multiplier*@gutter;}
+.marginLeft(@multiplier: 1) 									{margin-left: @multiplier*@gutter;}
+.marginRight(@multiplier: 1) 									{margin-right: @multiplier*@gutter;}
+.marginBottom(@multiplier: 1) 									{margin-bottom: @multiplier*@gutter;}
+
+.inlineList()
+{
+	list-style: none; 
+	padding: 0px; 
+	margin: 0px; 
+
+	li {
+		display: inline;
+	}
+}
+
+.clearfix() {
+	&:after{
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
+.removeDefaultAppearance() {
+	-webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;
+}
+
+.borderBox() {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.homepageGradient() {
+	background: #fbb042; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmJiMDQyIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VmODM3YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(-45deg, #fbb042 0%, #ef837a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left, right, color-stop(0%,#fbb042), color-stop(100%,#ef837a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(90deg, #fbb042 0%,#ef837a 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg, #fbb042 0%,#ef837a 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg, #fbb042 0%,#ef837a 100%); /* IE10+ */
+	background: linear-gradient(135deg, #fbb042 0%,#ef837a 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbb042', endColorstr='#ef837a',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+}
+
+
+body 							{margin: 0px; background-color: #F2F2F2; font-family: Helvetica, sans-serif}
+a 								{text-decoration: none;}
+
+#sidebar 						{position: fixed; top: 0px; left: 0px; width: @sidebarWidth; height: 100%; background-color: #2A2A2A;}
+.logo 							{text-align: center; .paddingTop(); .paddingBottom(0.5);}
+.main-menu						{list-style: none; margin: 0px; padding-left: 0px;}
+.main-menu-item 				{text-align: center;}
+.main-menu-item a 				{display: block; color: #FFFFFF; font-size: 12px; line-height: 3.5em; text-transform: uppercase;}
+.main-menu-item a:hover 		{background-color: #222222;}
+#main 							{margin-left: @sidebarWidth;}
+
+#header 						{.paddingBox(3); text-align: center;}
+.homepage-header 				{background-image: url('../img/png/bg_homepage_header.png'); background-position: center; color: #FFFFFF;}
+#header h1 						{margin-top: 0px; font-size: 3.5em; color: #FFFFFF; font-weight: 700;}
+#header p 						{.paddingLeft(2); .paddingRight(2); line-height: 1.5em;}
+
+
+.homepage-portfolio .portfolio-item 	{.col(50.00%); padding-right: 0px;}
+
+
+
+
